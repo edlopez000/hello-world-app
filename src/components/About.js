@@ -1,11 +1,13 @@
 import React from 'react';
-
+import { Box, Heading, Text } from '@chakra-ui/react';
 export default function About() {
   return (
-    <div>
-      <h1>About Page</h1>
-      <p>What can this page have?</p>
-      <p>Testing this whole shebang out</p>
-    </div>
+    <Box>
+      <Heading>About Page</Heading>
+      <Text>
+        Testing this whole shebang out by having an input whose values is passed
+        into another component
+      </Text>
+    </Box>
   );
 }

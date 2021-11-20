@@ -1,10 +1,10 @@
 import { Box, Heading } from '@chakra-ui/layout';
 import React from 'react';
 
-export default function Contact() {
+export default function Home() {
   return (
     <Box>
-      <Heading>Contact Page</Heading>
+      <Heading>Home</Heading>
     </Box>
   );
 }

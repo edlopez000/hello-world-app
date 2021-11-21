@@ -13,10 +13,10 @@ function App() {
       <Router>
         <Nav />
         <Routes>
-          <Route path="/home" element={<Home />} />
-          <Route path="/about" element={<About />} />
-          <Route path="/portfolio" element={<Portfolio />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route path="/" exact element={<Home />} />
+          <Route path="/about" exact element={<About />} />
+          <Route path="/portfolio" exact element={<Portfolio />} />
+          <Route path="/contact" exact element={<Contact />} />
         </Routes>
       </Router>
     </ChakraProvider>

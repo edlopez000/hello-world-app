@@ -6,7 +6,7 @@ export default function Nav() {
   return (
     <Box className="nav-bar" mx="5">
       <Stack direction="row" justify="flex-end">
-        <Link to="/home">Home</Link>
+        <Link to="/">Home</Link>
         <Link to="/about">About</Link>
         <Link to="/portfolio">Portfolio</Link>
         <Link to="/contact">Contact</Link>

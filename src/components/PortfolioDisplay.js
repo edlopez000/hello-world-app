@@ -9,10 +9,10 @@ import {
   Text,
 } from '@chakra-ui/react';
 
-export default function PortfolioDisplay() {
+export default function PortfolioDisplay({ project }) {
   return (
     <Box>
-      <Text>PortfolioDisplay.js is live</Text>
+      <Heading>{project.projectTitle}</Heading>
     </Box>
   );
 }

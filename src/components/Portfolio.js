@@ -1,9 +1,19 @@
-import { Box, Center, Heading, List, ListItem, Grid } from '@chakra-ui/react';
-import React from 'react';
+import {
+  Box,
+  Center,
+  Heading,
+  List,
+  ListItem,
+  Grid,
+  Link,
+} from '@chakra-ui/react';
+import React, { useState } from 'react';
 import { projects } from '../static/projects';
 import PortfolioDisplay from './PortfolioDisplay';
 
 export default function Portfolio() {
+  const [currentProject, setCurrentProject] = useState([]);
+
   return (
     <Box>
       <Center>
@@ -17,9 +27,11 @@ export default function Portfolio() {
                 return (
                   <>
                     <Box key={item.projectTitle}>
-                      <Heading as="h2" py="5">
-                        {item.projectTitle}
-                      </Heading>
+                      <Link onClick={() => setCurrentProject(item)}>
+                        <Heading as="h2" py="5">
+                          {item.projectTitle}
+                        </Heading>
+                      </Link>
                     </Box>
                   </>
                 );
@@ -28,7 +40,7 @@ export default function Portfolio() {
           </List>
         </Box>
         <Box px="5">
-          <PortfolioDisplay />
+          <PortfolioDisplay project={currentProject} />
         </Box>
       </Grid>
     </Box>

@@ -1,6 +1,7 @@
-import { Box, Center, Heading, List, ListItem, Text } from '@chakra-ui/react';
+import { Box, Center, Heading, List, ListItem, Grid } from '@chakra-ui/react';
 import React from 'react';
-import json from '../static/projects.json';
+import { projects } from '../static/projects';
+import PortfolioDisplay from './PortfolioDisplay';
 
 export default function Portfolio() {
   return (
@@ -8,15 +9,28 @@ export default function Portfolio() {
       <Center>
         <Heading>Portfolio</Heading>
       </Center>
-      <Center>
-        <List>
-          <ListItem>
-            {json.map((item) => {
-              return <Text key={item.projectTitle}>{item.projectTitle}</Text>;
-            })}
-          </ListItem>
-        </List>
-      </Center>
+      <Grid templateColumns="repeat(2, 1fr)">
+        <Box px="5">
+          <List>
+            <ListItem>
+              {projects.map((item) => {
+                return (
+                  <>
+                    <Box key={item.projectTitle}>
+                      <Heading as="h2" py="5">
+                        {item.projectTitle}
+                      </Heading>
+                    </Box>
+                  </>
+                );
+              })}
+            </ListItem>
+          </List>
+        </Box>
+        <Box px="5">
+          <PortfolioDisplay />
+        </Box>
+      </Grid>
     </Box>
   );
 }

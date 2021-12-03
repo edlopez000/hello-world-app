@@ -1,10 +1,11 @@
 import React from 'react';
-import { Box, Heading } from '@chakra-ui/react';
+import { Box, Text } from '@chakra-ui/react';
 
 export default function PortfolioDisplay({ project }) {
   return (
     <Box>
-      <Heading>{project.projectTitle}</Heading>
+      <Text>{project.projectTitle}</Text>
+      <Text>{project.purpose}</Text>
     </Box>
   );
 }

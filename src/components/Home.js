@@ -1,4 +1,5 @@
 import { Box, Center, Heading, Text, Button, VStack } from '@chakra-ui/react';
+import { RepeatIcon } from '@chakra-ui/icons';
 import React, { useEffect, useState } from 'react';
 
 export default function Home() {
@@ -17,6 +18,8 @@ export default function Home() {
     }).then((res) => res.json().then((result) => setDadJoke(result)));
   }, []);
 
+  const changeJoke = () => {};
+
   return (
     <Box>
       <VStack>
@@ -24,6 +27,9 @@ export default function Home() {
           <Heading>Home</Heading>
         </Center>
         <Button onClick={handleJoke}>Show Dad Joke</Button>
+        <Button>
+          <RepeatIcon onClick={changeJoke} />
+        </Button>
         {showJoke && <Text>{dadJoke.joke}</Text>}
       </VStack>
     </Box>

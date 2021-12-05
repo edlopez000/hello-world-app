@@ -1,4 +1,12 @@
-import { Box, Center, Heading, Text, Button, VStack } from '@chakra-ui/react';
+import {
+  Box,
+  Center,
+  Heading,
+  Text,
+  Button,
+  VStack,
+  HStack,
+} from '@chakra-ui/react';
 import { RepeatIcon } from '@chakra-ui/icons';
 import React, { useEffect, useState } from 'react';
 
@@ -10,15 +18,22 @@ export default function Home() {
     toggleShowJoke(!showJoke);
   };
 
-  useEffect(() => {
+  const fetchJoke = () => {
     return fetch('https://icanhazdadjoke.com/', {
       headers: {
         Accept: 'application/json',
       },
     }).then((res) => res.json().then((result) => setDadJoke(result)));
+  };
+
+  useEffect(() => {
+    fetchJoke();
   }, []);
 
-  const changeJoke = () => {};
+  const changeJoke = () => {
+    fetchJoke();
+    console.log(dadJoke);
+  };
 
   return (
     <Box>
@@ -26,10 +41,12 @@ export default function Home() {
         <Center>
           <Heading>Home</Heading>
         </Center>
-        <Button onClick={handleJoke}>Show Dad Joke</Button>
-        <Button>
-          <RepeatIcon onClick={changeJoke} />
-        </Button>
+        <HStack>
+          <Button onClick={handleJoke}>Show Dad Joke</Button>
+          <Button>
+            <RepeatIcon onClick={() => changeJoke()} />
+          </Button>
+        </HStack>
         {showJoke && <Text>{dadJoke.joke}</Text>}
       </VStack>
     </Box>

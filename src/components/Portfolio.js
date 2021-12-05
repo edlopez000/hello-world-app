@@ -23,17 +23,15 @@ export default function Portfolio() {
         <Box px="5">
           <List>
             <ListItem>
-              {projects.map((item) => {
+              {projects.map((item, index) => {
                 return (
-                  <>
-                    <Box key={item.projectTitle}>
-                      <Link onClick={() => setCurrentProject(item)}>
-                        <Heading as="h2" py="5">
-                          {item.projectTitle}
-                        </Heading>
-                      </Link>
-                    </Box>
-                  </>
+                  <Box key={index}>
+                    <Link onClick={() => setCurrentProject(item)}>
+                      <Heading as="h2" py="5">
+                        {item.projectTitle}
+                      </Heading>
+                    </Link>
+                  </Box>
                 );
               })}
             </ListItem>

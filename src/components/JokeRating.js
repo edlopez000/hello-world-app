@@ -1,11 +1,15 @@
 import React, { useState } from 'react';
-import { RiEmotionLaughLine, RiEmotionLaughFill } from 'react-icons/ri';
+import { RiEmotionLaughLine } from 'react-icons/ri';
 import { Box, HStack, Text } from '@chakra-ui/react';
 
 export default function JokeRating({ totalLaughs }) {
-  const Laugh = ({ selected = false }) => {
+  const Laugh = ({ selected = false, onSelect = (f) => f }) => {
     return (
-      <RiEmotionLaughLine size="50px" color={selected ? 'gold' : 'grey'} />
+      <RiEmotionLaughLine
+        size="50px"
+        color={selected ? 'gold' : 'grey'}
+        onClick={onSelect}
+      />
     );
   };
 
@@ -18,7 +22,11 @@ export default function JokeRating({ totalLaughs }) {
       <Text textAlign="center">Rate the dad joke!</Text>
       <HStack>
         {createArray(totalLaughs).map((element, index) => (
-          <Laugh key={index} selected={selectedLaughs > index} />
+          <Laugh
+            key={index}
+            selected={selectedLaughs > index}
+            onSelect={() => setSelectedLaughs(index + 1)}
+          />
         ))}
       </HStack>
       <Text textAlign="center">

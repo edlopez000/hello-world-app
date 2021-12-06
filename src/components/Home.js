@@ -9,6 +9,7 @@ import {
 } from '@chakra-ui/react';
 import { RepeatIcon } from '@chakra-ui/icons';
 import React, { useEffect, useState } from 'react';
+import JokeRating from './JokeRating';
 
 export default function Home() {
   const [dadJoke, setDadJoke] = useState([]);
@@ -50,6 +51,7 @@ export default function Home() {
           </Button>
         </HStack>
         {showJoke && <Text>{dadJoke}</Text>}
+        <JokeRating totalLaughs={10} />
       </VStack>
     </Box>
   );

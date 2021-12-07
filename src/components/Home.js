@@ -51,7 +51,7 @@ export default function Home() {
           </Button>
         </HStack>
         {showJoke && <Text>{dadJoke}</Text>}
-        <JokeRating totalLaughs={10} />
+        <JokeRating totalLaughs={5} />
       </VStack>
     </Box>
   );

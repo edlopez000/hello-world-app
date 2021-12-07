@@ -15,7 +15,7 @@ export default function JokeRating({ totalLaughs }) {
 
   const createArray = (length) => [...Array(length)];
 
-  const [selectedLaughs, setSelectedLaughs] = useState(5);
+  const [selectedLaughs, setSelectedLaughs] = useState(0);
 
   return (
     <Box>
